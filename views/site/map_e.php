@@ -36,7 +36,7 @@
 */
 
     $(document).ready(function () {
-1
+        //измерения по карте
         map.on("contextmenu", function (e) {
             var marker = new L.marker(e.latlng).addTo(window.map);
             console.log(turf.distance(marker.toGeoJSON(), window.region.toGeoJSON()) * 1000);

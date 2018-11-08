@@ -43,26 +43,26 @@
                         'Ширина ДНА в горизонт.плоск.:' + markers[i].horiz_width
                     );
                     m.addLayer(marker);
+                    marker.on('drag', function (e) {
+                        console.log('marker drag event');
+                    });
                 }
                 map.addLayer(m);
                 m.addEventListener('mouseout', function (e) {
-                    console.log(e);
+                    // console.log(c);
+                    // console.log($(this).closest('leaflet-interactive'));
                     // m.removeLayer(marker);
                 });
                 m.addEventListener('mouseover', function (e) {
-
                     if (map.getZoom() >= 16) {
-
                         var coordinates = e.latlng;
                         var azimuth = e.layer.options.azimuth;
                         var width = e.layer.options.d_width;
                         var frequency = e.layer.options.frequency;
-                        // var az_d = azimuth.split(",");
-                        // var width_d = width.split(",");
                         var width_d = parseFloat(width);
-                        var radius = 400;
+                        var length = 400;
                         if (width_d > 0.9 && width_d <= 3) {
-                            radius = 10000;
+                            length = 10000;
                         }
                         var az_d = parseFloat(azimuth);
                         var start_angle = az_d - width_d / 2;
@@ -75,9 +75,8 @@
                         } else {
                             color = '#39ff95';
                         }
-
-                        L.semiCircle([coordinates.lat, coordinates.lng], {
-                            radius: radius,
+                        var c = L.semiCircle([coordinates.lat, coordinates.lng], {
+                            radius: length,
                             startAngle: start_angle,
                             stopAngle: end_angle,
                             fillColor: color,
@@ -95,6 +94,19 @@
                         .setDirection(azimuth, width-1)
                         .addTo(map);
                 }
+*/
+/*
+                map.on('layeradd', function (e) {
+                    console.log(e);
+                });
+
+                map.on('draw:created', function (e) {
+                    console.log(e);
+                    var type = e.layerType,
+                        layer = e.layer;
+                    drawnItems.addLayer(layer);
+                    console.log(layer);
+                });
 */
             }
         });

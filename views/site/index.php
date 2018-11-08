@@ -199,6 +199,9 @@ $dell_hint = 'Удалить БС';
                 style: 'os',
                 selector: 'td:last-child'
             },
+            rowGroup: {
+                dataSrc: 1
+            },
             language: {
                 url: "/lib/ru.json"
             }

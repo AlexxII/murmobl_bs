@@ -107,15 +107,25 @@ class SiteController extends Controller
         return $this->render('map');
     }
 
-    public function actionMapEx()
+    public function actionMapAll()
     {
         return $this->render('map_ex');
+    }
+
+    public function actionMapFiltration()
+    {
+        return $this->render('map_e');
     }
 
     public function actionCoordinatesEx()
     {
         $coordinate = BaseStations::find()->asArray()->all();
         return json_encode($coordinate);
+    }
+
+    public function actionCoordinatesE()
+    {
+
     }
 
 
@@ -134,7 +144,7 @@ class SiteController extends Controller
 
         $columns = array(
             array('db' => 'id', 'dt' => 0),
-            array('db' => 'company_title', 'dtd' => 1),
+            array('db' => 'company_title', 'dt' => 1),
             array('db' => 'res', 'dt' => 2),
             array('db' => 'placement', 'dt' => 3),
             array('db' => 'azimuth', 'dt' => 4),

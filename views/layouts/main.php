@@ -20,6 +20,9 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
+
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
@@ -39,8 +42,9 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Map', 'url' => ['/site/map']],
-            ['label' => 'Map_ex', 'url' => ['/site/map-ex']],
+            ['label' => 'Мясо', 'url' => ['/site/map']],
+            ['label' => 'Общий план', 'url' => ['/site/map-all']],
+            ['label' => 'Карта', 'url' => ['/site/map-filtration']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
